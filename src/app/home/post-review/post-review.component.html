@@ -1,0 +1,37 @@
+<section class="container">
+        <form [formGroup]="reviewForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Name"  formControlName="name" required>
+            <mat-icon matSuffix class="star">sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline">
+            <mat-label>Comment</mat-label>
+            <input matInput placeholder="Comment" formControlName="message" required>
+            <mat-icon matSuffix class="star">sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline">
+            <mat-label>Award Stars</mat-label>
+            <mat-select formControlName="rate" required>
+                <mat-option value="1">1 Star</mat-option>
+                <mat-option value="2">2 Stars</mat-option>
+                <mat-option value="3">3 Stars</mat-option>
+                <mat-option value="4">4 Stars</mat-option>
+                <mat-option value="5">5 Stars</mat-option>
+            </mat-select>
+            <mat-icon matSuffix class="star">star</mat-icon>
+        </mat-form-field>
+      </form>
+        <br>
+        <div class="row">
+            <div style="text-align:center">
+                <button mat-raised-button color="secondary" [class.spinner]="isLoadingReviews" [disabled]="isLoadingReviews" (click)="postReview()">Submit Review</button>
+            </div>
+            <div style="text-align:center">
+                <button mat-raised-button color="secondary"  (click)="onCloseDialog('Cancelled')">Cancel</button>
+            </div>
+
+        </div>
+</section>

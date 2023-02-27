@@ -1,0 +1,23 @@
+<section class="padding-y">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let item of relatedData">
+          <figure class="card-product-grid"  (click)="goToDetails(item.productId)">
+            <a  class="img-wrap rounded bg-gray-light"> 
+              <span class="topbar"> <span class="badge bg-danger"> New </span> </span>
+              <img src="data:image/png;base64,{{item.productImage}}" alt="Product Image" class="img-fluid mix-blend-multiply" height="250">
+              <!-- <img height="250" class="mix-blend-multiply" src="assets/images/items/1.webp">  -->
+            </a>
+            <figcaption class="pt-2">
+              <button href="#" class="float-end btn btn-light btn-icon" (click)="addToCart(item)"> <i class="fa fa-heart"></i> </button>
+              <button href="#" class="float-end btn btn-light btn-icon" (click)="addToWhilst(item)"> <i class="fa fa-shopping-cart"></i> </button>
+              <strong class="price">Ksh.{{item.productPrice}}</strong> <!-- price.// -->
+              <a href="#" class="title text-truncate">{{item.productName}}</a>
+              <!-- <small class="text-muted">Model: X-200</small> -->
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    
+    </div> 
+    </section>

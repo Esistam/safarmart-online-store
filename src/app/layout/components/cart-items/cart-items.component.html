@@ -1,0 +1,49 @@
+<section class="container">
+  <div class="row topView">
+    <h5 class="title">Your cart ({{cartItems.length}}) </h5>
+    <button type="button" class="btn-close text-reset"  aria-label="Close" (click)="onCloseDialog('closeBtn')"></button>
+  </div>
+  <div class="offcanvas-body" data-bs-scroll="true" *ngIf="cartItems.length>0">
+      
+    <div class="itemside mb-4" *ngFor="let item of cartItems">
+      <div class="aside">
+        <img src="data:image/png;base64,{{item?.productImage}}" alt="Product Image"  class="border img-sm rounded">
+
+      </div>
+      <div class="info">
+        <button href="#" class="btn btn-icon btn-light float-end" (click)="remove_items(item.productId)"><i class="fa fa-trash"></i></button>
+        <p>{{item.productName}}</p>
+        <span class="text-muted display-flex">
+          <section class="formView mt-5">
+            <div class="col-lg-5 col-md-12 col-12">
+                <form [formGroup]="quantityForm" >
+                  <div class="input-group">
+                    <input 
+                    class="form-control"
+                    type="number"
+                    formControlName="quantity"
+                    placeholder="{{item.productQuantity}}"
+                    (input)="updateQuantity(item.productId)"
+                    >
+                  </div>
+                </form>
+              </div>
+          </section>
+            x Ksh.{{item.productPrice}}</span> <br>
+        <strong class="price">Ksh.{{item.productTotalPrice}}</strong>
+      </div>
+    </div>
+    <hr>
+   
+  <div class="fixed">
+    <p class="mb-3 text-center"> Subtotal:  <strong class="text-danger">Ksh.{{totalCosting}}</strong>  </p>
+    <div class="mb-3">
+      <a href="/checkout" class="btn w-100 btn-success"> Checkout </a>
+    </div>
+    <p class="mb-3 text-center"> <img src="assets/images/payments.webp" height="22">  </p>
+  </div>
+  </div>
+  <div class="text-center" *ngIf="cartItems.length<1">
+    <h1>NO ITEMS IN CART</h1>
+  </div>
+</section>

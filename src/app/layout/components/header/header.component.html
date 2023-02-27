@@ -1,0 +1,62 @@
+<header class="section-header">
+  <section class="header-main">
+    <div class="container">
+      <div class="row gy-3 align-items-center">
+        <div class="col-lg-2 col-sm-4 col-4">
+          <a href="/">
+            <img src="../../../../assets/logo.png" alt="">
+          </a>
+        </div>
+        <div class="col-lg-2 col-sm-4 col-4">
+          <!-- <a href="/">
+            <img src="../../../../assets/logo.png" alt="">
+          </a> -->
+        </div>
+        <div class="col-lg-2 col-sm-4 col-4">
+          <!-- <a href="/">
+            <img src="../../../../assets/logo.png" alt="">
+          </a> -->
+        </div>
+        
+        <div class="order-lg-last col-lg-5 col-sm-8 col-8">
+          <div class="float-end">
+            <a href="/auth" class="btn btn-light m-2">
+              <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Sign in </span>
+            </a>
+            <a data-bs-toggle="offcanvas" href="#offcanvas_wishList" class="btn btn-light m-2">
+              <i class="fa fa-heart">
+                <span
+                  style="position:relative;bottom:15px;right:5px;color:orange;font-size: 15px;">{{whishItem.length}}</span>
+              </i>
+              <!-- <span class="ms-1 d-none d-sm-inline-block">Wishlist</span> -->
+            </a>
+            <button  class="btn btn-light m-2" (click)="myProducts('cartItems')">
+              <i class="fa fa-shopping-cart">
+                <span
+                  style="position:relative;bottom:15px;right:5px;color:orange;font-size: 15px;">{{cartItems.length}}</span>
+              </i>
+              <!-- <span class="ms-1">My cart </span> -->
+            </button>
+          </div>
+        </div>
+        <!-- <div class="col-lg-5 col-md-12 col-12">
+          <form [formGroup]="searchForm">
+            <div class="input-group">
+              <input type="search"  
+              style="width:55%" 
+              class="form-control"
+              formControlName="search"
+              placeholder="Search"
+              formControlName="search" (input)="searchProduct()"
+              >
+            </div>
+          </form>
+        </div> -->
+      </div>
+    </div>
+  </section>
+  <nav class="navbar navbar-light bg-gray-light navbar-expand-lg"></nav>
+</header>
+<!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas_cart" data-bs-scroll="true">
+  <app-cart-items></app-cart-items>
+</div> -->

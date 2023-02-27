@@ -1,0 +1,14 @@
+<section class="row container mt-5">
+    <section class="col-sm-6">
+    <section class="mt-3 col-sm-6" *ngFor="let rec of reviewsData">
+        <div>
+        <span class="nameView">{{rec.reviewAuthor}}</span>
+        </div>
+        <div class="ratingView">
+        <span>{{rec.reviewRate}}<span> (rating)</span></span>
+    </div>
+        <div>
+        <span class="nameView">{{rec.reviewMessage}}</span>
+        </div>
+    </section>
+</section>

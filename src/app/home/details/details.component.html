@@ -1,0 +1,58 @@
+<section *ngIf="!isLoading || !isLoadingRelated || !isLoadingReviews">
+  <section class="app">
+    <div class="details" key={item._id}>
+        <div class="big-img">
+          <img src="data:image/png;base64,{{productData?.productImage}}" alt="Product Image" class="img-fluid mix-blend-multiply" height="250">
+          <!-- <img src='../../../assets/images/items/14.webp' alt=""/> -->
+        </div>
+    
+        <div class="box">
+          <div class="row">
+            <h5>{{productData?.productName}}</h5>
+            <span>Ksh.{{productData?.productPrice}}</span>
+          </div>
+          <button class="cart"  (click)="addToCart(productData)">Add to cart</button>
+        </div>
+      </div>
+    </section>
+    <section class="app">
+        <mat-tab-group  class="row mx-aut container-fluid">
+          
+            <mat-tab label="Related Products" class="col-lg-3 col-md-4 col-12"> 
+              <section class="formView mt-5">
+                <div class="col-lg-5 col-md-12 col-12">
+                    <form [formGroup]="searchForm" >
+                      <div class="input-group">
+                        <input type="search"  
+                        style="width:55%" 
+                        class="form-control"
+                        formControlName="search"
+                        placeholder="What are you looking for???"
+                        formControlName="search"
+                        (input)="getProductRelated(productData?.productCategory)"
+                        >
+                      </div>
+                    </form>
+                  </div>
+              </section>
+                <app-product-related [relatedData]="relatedData"  *ngIf="relatedData.length>0"></app-product-related>
+                <div  *ngIf="relatedData.length<1" class="mt-4 text-center">
+                  <p class="noView">PRODUCTS NOT FOUND!!!</p>
+                </div>
+            </mat-tab>
+            
+            <mat-tab label="Reviews ({{reviewsData.length}})" class="col-lg-3 col-md-4 col-12 mt-4">
+              <div class="text-center mt-3">
+                <button mat-raised-button color="primary" class="p-3" [class.spinner]="isLoadingReviews" [disabled]="isLoadingReviews" (click)="addReview(productCode)">Add Review</button>
+              </div>
+              <app-product-reviews [reviewsData]="reviewsData" *ngIf="reviewsData.length>0"></app-product-reviews>
+              <div  *ngIf="reviewsData.length<1" class="mt-4 text-center">
+                <p>There are no reviews for this product</p>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+    </section>
+</section>
+
+<section *ngIf="isLoading || isLoadingReviews || isLoadingRelated" id="overlay">
+</section>

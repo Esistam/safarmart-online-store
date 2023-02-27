@@ -1,0 +1,52 @@
+<section class="section-intro pt-3" *ngIf="!isLoading || !isLoadingCatgory">
+  <div class="container">
+
+    <div class="row gx-3 the-view">
+      <article class="card-banner p-5"
+        style="height: 400px;background-color: rgba(39, 39, 37, 0.7);background:url(data:image/png;base64,{{categoryData?.categoryImage}}); width: 100%;background-size: cover;background-position:center;background-repeat: no-repeat;position: relative;">
+        <div class="layer">
+          <h1>{{categoryData?.categoryName}}</h1>
+          <!-- <p>{{categoryData.categoryDescription}}</p> -->
+        </div>
+      </article>
+
+    </div>
+    <div class="mt-5 mb-5 text-center">
+      <form [formGroup]="searchForm" class="p-3">
+        <div class="input-group">
+          <input type="search " class="form-control" style="width:55%" placeholder="What are you looking for ?"
+            formControlName="search" (input)="getCategoryProducts()">
+        </div>
+      </form>
+    </div>
+    <ng-container *ngIf="productList.length">
+      <div class="row mt-5">
+        <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let item of productList">
+          <figure class="card-product-grid" (click)="goToDetails(item.productId)">
+            <a class="img-wrap rounded bg-gray-light">
+              <span class="topbar"> <span class="badge bg-danger"> New </span> </span>
+              <img src="data:image/png;base64,{{item.productImage}}" alt="Product Image"
+                class="img-fluid mix-blend-multiply" height="250">
+            </a>
+            <figcaption class="pt-2">
+              <button href="#" class="float-end btn btn-light btn-icon" (click)="addToCart(item)"> <i
+                  class="fa fa-heart"></i> </button>
+              <button href="#" class="float-end btn btn-light btn-icon" (click)="addToWhilst(item)"> <i
+                  class="fa fa-shopping-cart"></i> </button>
+              <strong class="price">Ksh.{{item.productPrice}}</strong>
+              <a href="#" class="title text-truncate">{{item.productName}}</a>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="productList.length<1">
+      <div class="container text-center">
+        <h1>Product no found</h1>
+      </div>
+    </ng-container>
+
+  </div>
+</section>
+<section *ngIf="isLoading || isLoadingCatgory" id="overlay">
+</section>

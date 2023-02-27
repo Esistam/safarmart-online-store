@@ -1,0 +1,22 @@
+.topView{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.title{
+    font-size: 20px;
+    font-weight: 600;
+}
+button span{
+    font-size: 20px;
+    font-weight: 900;
+}
+button{
+    text-decoration: none;
+    border: none;
+}
+button:hover{
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}

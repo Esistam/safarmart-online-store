@@ -1,0 +1,178 @@
+<section *ngIf="!isLoadingProducts || !isLoadingCategories">
+  <!-- ================ SECTION INTRO ================ -->
+<section class="section-intro pt-3" >
+  <div class="container">
+
+    <div class="row gx-3">
+      <main class="col-lg-9">
+        <article class="card-banner p-5 bg-primary" style="height: 350px">
+          <div style="max-width: 500px">
+              <h2 class="text-white">Great products with <br> best deals </h2>
+              <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
+              <a href="#" class="btn btn-warning"> View more </a>
+              </div>
+        </article>
+      </main>
+      <aside class="col-lg-3">
+        <article class="card-banner h-100" style="background-color: var(--bs-warning)">
+          <div class="card-body text-center">
+                  <h5 class="mt-3 text-white">Amazing Gifts</h5>
+                     <p class="text-white">No matter how far along you are in your sophistication</p>
+                  <a href="#" class="btn btn-outline-light"> View more </a>
+              </div>
+        </article>
+      </aside>
+    </div> <!-- row //end -->
+
+  </div> <!-- container end.// -->
+</section>
+<!-- ================ SECTION INTRO END.// ================ -->
+<section class="formView mt-5">
+  <div class="col-lg-5 col-md-12 col-12">
+      <form [formGroup]="searchForm" >
+        <div class="input-group">
+          <input type="search"  
+          style="width:55%" 
+          class="form-control"
+          formControlName="search"
+          placeholder="What are you looking for???"
+          formControlName="search"
+          (input)="getProducts()"
+          (input)="getCategories()"
+          >
+        </div>
+      </form>
+    </div>
+</section>
+<!-- ================ SECTION CATEGORY ================ -->
+<section class="padding-top">
+<div class="container">
+  <nav class="row gy-4 row-cols-xl-8 row-cols-sm-4 row-cols-3" *ngIf="categoryData.length>0">
+      <div class="col" *ngFor="let rec of categoryData">
+        <a href="/category/{{rec.categView}}" class="item-link text-center">
+            <span class="icon mb-2 icon-md rounded"> 
+              <img src="data:image/png;base64,{{rec.imgView}}" alt="Product Image" class="img-fluid mix-blend-multiply" height="32" width="32">
+
+                   <!-- <img width="32" height="32" src="assets/images/icons/category-svg-blue/sofa.svg"> -->
+               </span>
+           <span class="text">{{rec.categName}}</span>
+        </a>
+      </div> <!-- col.// -->
+   </nav>
+   <nav class="text-center" *ngIf="categoryData.length<1">
+    <h4>CATEGORY NOT FOUND !!!</h4>
+   </nav>
+</div>	
+</section>
+<!-- ================ SECTION CATEGORY END.// ================ -->
+
+<!-- ================ SECTION PRODUCTS ================ -->
+<section class="padding-y">
+<div class="container">
+
+  <header class="section-heading">
+    <h3 class="section-title">New products</h3>
+      
+  </header> 
+
+  <div class="row" *ngIf="productData1.length>0">
+    <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let item of productData1">
+      <figure class="card-product-grid" >
+        <a  class="img-wrap rounded bg-gray-light" (click)="goToDetails(item.productId)"> 
+          <span class="topbar"> <span class="badge bg-danger"> New </span> </span>
+          <img src="data:image/png;base64,{{item.productImage}}" alt="Product Image" class="img-fluid mix-blend-multiply" height="250">
+          <!-- <img height="250" class="mix-blend-multiply" src="assets/images/items/1.webp">  -->
+        </a>
+        <figcaption class="pt-2">
+          <button href="#" class="float-end btn btn-light btn-icon" (click)="addToCart(item)"> <i class="fa fa-heart"></i> </button>
+          <button href="#" class="float-end btn btn-light btn-icon" (click)="addToWhilst(item)"> <i class="fa fa-shopping-cart"></i> </button>
+          <strong class="price">Ksh.{{item.productPrice}}</strong> <!-- price.// -->
+          <a href="#" class="title text-truncate">{{item.productName}}</a>
+          <!-- <small class="text-muted">Model: X-200</small> -->
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+<nav class="text-center" *ngIf="productData1.length<1">
+  <h4>PRODUCT NOT FOUND !!!</h4>
+  </nav>
+</div>
+</section>
+<!-- ================ SECTION PRODUCTS END.// ================ -->
+
+
+<!-- ================ SECTION FEATURE ================ -->
+<section>
+<div class="container">
+  <article class="card p-4" style="background-color: var(--bs-primary)">
+    <div class="row align-items-center">
+      <div class="col"> 
+        <h4 class="mb-0 text-white">Best products and brands in store</h4>
+        <p class="mb-0 text-white-50">Trendy products and text to build on the card title</p>
+      </div>
+      <div class="col-auto"> <a class="btn btn-warning" href="#">Discover</a> </div>
+    </div>
+  </article>
+</div> <!-- container end.// -->
+</section>
+<!-- ================ SECTION FEATURE END.// ================ -->
+
+<!-- ================ SECTION PRODUCTS ================ -->
+<section class="padding-y">
+<div class="container">
+
+  <header class="section-heading">
+    <h3 class="section-title">Recommended</h3>
+  </header> 
+
+  <div class="row" *ngIf="productData2.length>0">
+    <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let item of productData2">
+      <figure class="card-product-grid">
+        <a  class="img-wrap rounded bg-gray-light"  (click)="goToDetails(item.productId)"> 
+          <span class="topbar"> <span class="badge bg-danger"> New </span> </span>
+          <img src="data:image/png;base64,{{item.productImage}}" alt="Product Image" class="img-fluid mix-blend-multiply" height="250">
+          <!-- <img height="250" class="mix-blend-multiply" src="assets/images/items/1.webp">  -->
+        </a>
+        <figcaption class="pt-2">
+          <button href="#" class="float-end btn btn-light btn-icon" (click)="addToCart(item)"> <i class="fa fa-heart"></i> </button>
+          <button href="#" class="float-end btn btn-light btn-icon" (click)="addToWhilst(item)"> <i class="fa fa-shopping-cart"></i> </button>
+          <strong class="price">Ksh.{{item.productPrice}}</strong> <!-- price.// -->
+          <a href="#" class="title text-truncate">{{item.productName}}</a>
+          <!-- <small class="text-muted">Model: X-200</small> -->
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+  <nav class="text-center" *ngIf="productData2.length<1">
+    <h4>PRODUCT NOT FOUND !!!</h4>
+    </nav>
+</div>
+</section>
+<!-- ================ SECTION PRODUCTS END.// ================ -->
+
+<section class="padding-y-sm bg-gray-light">
+  <div class="container">
+      <div class="row gy-3 align-items-center">
+        <div class="col-md-4">
+          <form>
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Email">
+              <button class="btn btn-light" type="submit"> Subscribe  </button>
+            </div> <!-- input-group.// -->
+          </form>
+        </div>
+        <div class="col-md-8">
+          <nav class="float-lg-end">
+              <a class="btn btn-icon btn-light" title="Facebook" target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
+              <a class="btn btn-icon btn-light" title="Instagram" target="_blank" href="#"><i class="fab fa-instagram"></i></a>
+              <a class="btn btn-icon btn-light" title="Youtube" target="_blank" href="#"><i class="fab fa-youtube"></i></a>
+              <a class="btn btn-icon btn-light" title="Twitter" target="_blank" href="#"><i class="fab fa-twitter"></i></a>
+          </nav>
+        </div>
+      </div> <!-- row.// -->
+  </div><!-- //container -->
+</section>
+</section>
+
+<section *ngIf="isLoadingProducts || isLoadingCategories" id="overlay">
+</section>
