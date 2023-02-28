@@ -28,14 +28,7 @@ export class HeaderComponent {
   }
 
 myProducts(event: any): any {   
-  const dialogPosition: DialogPosition = {
-    top: event.y + 'px',
-    right: event.x + 'px'
-  }; 
     const dialogRef = this.dialog.open(CartItemsComponent, {
-      width: '95%',
-      height:'100%',
-      position: dialogPosition,
       panelClass: 'dialogClass',
       data: event,
     });

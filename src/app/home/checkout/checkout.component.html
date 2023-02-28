@@ -1,67 +1,15 @@
 <section class="container">
     <mat-horizontal-stepper  #stepper="matHorizontalStepper">
         <mat-step [stepControl]="firstFormGroup" class="container-fluid row">
-          <form [formGroup]="firstFormGroup" class="col-lg-8">
-            <ng-template matStepLabel>Billing Address</ng-template>
-              <mat-form-field appearance="outline" class="col-md-6 p-3">
-                <mat-label>Name</mat-label>
-                <input matInput placeholder="Name" formControlName="name">
-              </mat-form-field>
-              <mat-form-field appearance="outline" class="col-md-6 p-3">
-                <mat-label>Email</mat-label>
-                <input matInput placeholder="Email" formControlName="email">
-              </mat-form-field>
-              <mat-form-field appearance="outline" class="col-md-6 p-3">
-                <mat-label>Mobile</mat-label>
-                <input matInput placeholder="Mobile" formControlName="mobile">
-              </mat-form-field>
-
-              <mat-form-field appearance="outline" class="col-md-6 p-3">
-                <mat-label>Country</mat-label>
-                <input matInput placeholder="Country" formControlName="country">
-              </mat-form-field>
-              <mat-form-field appearance="outline" class="col-md-6 p-3">
-                <mat-label>City/Town</mat-label>
-                <input matInput placeholder="City/Town" formControlName="city">
-              </mat-form-field>
-              <mat-form-field appearance="outline" class="col-md-6 p-3">
-                <mat-label>Estate/Apartment</mat-label>
-                <input matInput placeholder="Estate/Apartment" formControlName="estate">
-              </mat-form-field>
-            <div>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
+          <ng-template matStepLabel>Billing Address</ng-template>
+          <h6>BILLING ADDRESS</h6>
         </mat-step>
 
 
 
         <mat-step [stepControl]="secondFormGroup" class="container-fluid row">
-          <form [formGroup]="secondFormGroup" class="col-lg-8">
-            <ng-template matStepLabel>Payment</ng-template>
-            <mat-form-field appearance="outline" class="col-md-6 p-3">
-                <mat-label>Payment Method</mat-label>
-                <mat-select formControlName="method">
-                  <mat-option value="primary">Mpesa</mat-option>
-                  <mat-option value="accent">Cash On Delivery</mat-option>
-                </mat-select>
-              </mat-form-field>
-                <mat-form-field appearance="outline" floatLabel="always" class="col-md-6 p-3">
-                <mat-label>Amount</mat-label>
-                <input matInput type="number" class="example-right-align" placeholder="0" formControlName="amt">
-                <span matTextPrefix>Ksh&nbsp;</span>
-                <span matTextSuffix>.00</span>
-                </mat-form-field>
-                  <mat-form-field appearance="outline" class="col-md-6 p-3">
-                    <mat-label>Mpesa No</mat-label>
-                    <input matInput placeholder="Mpesa No" formControlName="mpesa_no">
-                    <mat-hint>payment mpesa no</mat-hint>
-                  </mat-form-field>
-            <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
+          <ng-template matStepLabel>Payment Method</ng-template>
+          <h6>payments</h6>
         </mat-step>
         <mat-step>
           <ng-template matStepLabel>Done</ng-template>

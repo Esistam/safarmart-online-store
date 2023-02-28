@@ -5,7 +5,7 @@
 export const environment = {
     production: false,
     // BASE_URL: 'http://localhost:8149',
-    BASE_URL:'http://104.131.0.55:8149'
+    BASE_URL:'https://safamart.esistam.com'
   };
   
   /*
