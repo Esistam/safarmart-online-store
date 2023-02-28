@@ -2,21 +2,83 @@
     <mat-horizontal-stepper  #stepper="matHorizontalStepper">
         <mat-step [stepControl]="firstFormGroup" class="container-fluid row">
           <ng-template matStepLabel>Billing Address</ng-template>
-          <h6>BILLING ADDRESS</h6>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                  <label>Full Name</label>
+                  <input class="form-control" type="text" placeholder="Full Name" required>
+              </div>
+              <div class="col-md-6">
+                  <label>Email Address</label>
+                  <input class="form-control" type="text" placeholder="Email Address">
+              </div>
+              <div class="col-md-6">
+                  <label>Mobile No.</label>
+                  <input class="form-control" type="text" placeholder="Mobile No.">
+              </div>
+              <div class="col-md-6">
+                  <label>Mobile No</label>
+                  <input class="form-control" type="number" placeholder="Mobile No">
+              </div>
+              <div class="col-md-6">
+                  <label>City/Town</label>
+                  <input class="form-control" type="text" placeholder="City/Town">
+              </div>
+              <div class="col-md-6">
+                  <label>Estate/Town</label>
+                  <input class="form-control" type="text" placeholder="Estate/Town">
+              </div>
+              <div class="col-md-12">
+                  <button class="btn">Submit</button>
+              </div>
+          </div>
+          </div>
         </mat-step>
-
-
-
         <mat-step [stepControl]="secondFormGroup" class="container-fluid row">
           <ng-template matStepLabel>Payment Method</ng-template>
-          <h6>payments</h6>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                  <label>Payment Method</label>
+                  <input class="form-control" type="text" placeholder="Payment Method" required>
+              </div>
+              <div class="col-md-6">
+                  <label>Mpesa No.</label>
+                  <input class="form-control" type="text" placeholder="Mpesa No.">
+              </div>
+              <div class="col-md-6">
+                  <label>Amount</label>
+                  <input class="form-control" type="text" placeholder="Amount">
+              </div>
+              <div class="col-md-12">
+                  <button class="btn">Submit</button>
+              </div>
+          </div>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.next()">Next</button>
+          </div>
         </mat-step>
         <mat-step>
           <ng-template matStepLabel>Done</ng-template>
-          You are now done.
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+           <div class="text-center">
+            <h3>Purchase order</h3>
+              <br>
+            <p class="text-view">
+              Thank your for successfuly purchasing with us.Your order number is <strong>23456789</strong>.
+              <br>
+            A rider will reach our for more information on your delivery address
+            </p>
+              <br>
+              <img src="../../../assets/icons8-in-transit.gif" alt="transit" class="mt-5 mb-5 imgView">
+           </div>
+
+           <div class="example-button-container text-center">
+            <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="goHome()">
+              <mat-icon>done</mat-icon>
+              <!-- <label for="done">Done</label> -->
+            </button>
           </div>
         </mat-step>
       </mat-horizontal-stepper>

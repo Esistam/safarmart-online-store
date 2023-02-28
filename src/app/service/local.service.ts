@@ -18,9 +18,7 @@ export class LocalService {
     let cartItem=this.cartItems.find(function(cartItem: any){
       return cartItem.productId == product
     });
-    if(this.cartItems.length==0){
-      console.log('CART IS EMPTY KABSA!!!!!!!!');
-      
+    if(this.cartItems.length==0){     
       this.cartItems.push({
         "productName":product.productName,
         "productImage":product.productImage,
@@ -45,30 +43,6 @@ export class LocalService {
       }
     }
     localStorage.setItem("cartItems",JSON.stringify(this.cartItems));
-  }
-  removeItemCart(product:any){    
-  let temp=this.cartItems.filter((item:any)=>item.productId !=product)
-  localStorage.setItem("cartItems",JSON.stringify(temp));
-  }
-  updateQuantity(productId:any,quanty:any){
-    for(let product of this.cartItems){
-      if(product.productId==productId){
-        product.productQuantity=quanty;
-        product.productTotalPrice=quanty*product.productPrice
-      }
-    }
-    localStorage.setItem("cartItems",JSON.stringify(this.cartItems));
-  }
-  getTotal(){
-    let temp=this.cartItems.map(function(item:any){
-      return parseFloat(item.productPrice)
-    });
-    let sum = temp.reduce(function(prev:any,next:any){
-      return prev + next
-    },0)
-    localStorage.setItem("totalCosting",JSON.stringify(sum));
-    console.log(sum,"THE SUM OF CART ITE,S");
-    
   }
   addWhishList(product:any){
     let wishItem=this.wishItems.find(function(wishItem: any){

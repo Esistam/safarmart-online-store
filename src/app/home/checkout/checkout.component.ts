@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -10,7 +11,9 @@ export class CheckoutComponent {
   firstFormGroup!: FormGroup;
   secondFormGroup!: FormGroup;
   constructor(
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private router: Router,
+
   ){}
   ngOnInit(){
     this.firstFormGroup = this._formBuilder.group({
@@ -26,5 +29,8 @@ export class CheckoutComponent {
       method: ['', Validators.required],
       mpesa_no: ['']
     });
+  }
+  goHome(){ 
+    this.router.navigate([`/`])
   }
 }

@@ -25,19 +25,22 @@
                   style="position:relative;bottom:15px;right:5px;color:orange;font-size: 15px;">{{whishItem.length}}</span>
               </i>
             </a>
-            <div  class="btn btn-light m-2">
-              <a href="/checkout">
-                <i class="fa fa-shopping-cart">
-                  <span
-                    style="position:relative;bottom:15px;right:5px;color:orange;font-size: 15px;">{{cartItems.length}}</span>
-                </i>
-              </a>
-              
-            </div>
+            <a data-bs-toggle="offcanvas" href="#offcanvas_cartItems" class="btn btn-light m-2">
+              <i class="fa fa-shopping-cart">
+                <span
+                  style="position:relative;bottom:15px;right:5px;color:orange;font-size: 15px;">{{cartItems.length}}</span>
+              </i>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
   <nav class="navbar navbar-light bg-gray-light navbar-expand-lg"></nav>
+  <section class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas_cartItems">
+    <app-cart-items></app-cart-items>
+  </section>
+  <section class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas_wishList">
+    <app-whishlist></app-whishlist>
+  </section>
 </header>

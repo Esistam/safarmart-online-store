@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { CartItemsComponent } from './components/cart-items/cart-items.component';
 import { SharedModule } from '../shared/shared/shared.module';
 import { OrdersComponent } from './components/orders/orders.component';
+import { WhishlistComponent } from './components/whishlist/whishlist.component';
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -14,6 +15,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     HeaderComponent,
     CartItemsComponent,
     OrdersComponent,
+    WhishlistComponent
   ],
   imports: [
     CommonModule,

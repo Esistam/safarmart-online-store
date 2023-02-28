@@ -1,0 +1,20 @@
+<div class="offcanvas-header">
+  <h5 class="offcanvas-title">Your cart ({{cartItems.length}}) </h5>
+  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body">
+  
+  <figure class="itemside mb-4" *ngFor="let item of whishItem">
+    <div class="aside">
+      <img src="data:image/png;base64,{{item.productImage}}" class="border img-sm rounded">
+    </div>
+    <figcaption class="info">
+      <button (click)="remove_items(item)" class="btn btn-icon btn-light float-end"><i class="fa fa-trash"></i></button>
+      <p>{{item.productName}}</p>
+      <span class="text-muted">{{item.productQuantity}} x Ksh.{{item.productPrice}} </span> <br>
+      <strong class="price">Ksh.{{item.productTotalPrice}}</strong>
+    </figcaption>
+  </figure>
+  <hr>
+  <p class="mb-3 text-center"> <img src="assets/images/payments.webp" height="22">  </p>
+</div>

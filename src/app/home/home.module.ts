@@ -9,7 +9,6 @@ import { SharedModule } from '../shared/shared/shared.module';
 import { ProductReviewsComponent } from './product-reviews/product-reviews.component';
 import { ProductRelatedComponent } from './product-related/product-related.component';
 import { CategorisedProductsComponent } from './categorised-products/categorised-products.component';
-import { CategoryProductsComponent } from './category-products/category-products.component';
 import { PostReviewComponent } from './post-review/post-review.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -25,7 +24,6 @@ import { ProfileComponent } from './profile/profile.component';
     ProductReviewsComponent,
     ProductRelatedComponent,
     CategorisedProductsComponent,
-    CategoryProductsComponent,
     PostReviewComponent,
     RegistrationComponent,
     ProfileComponent,

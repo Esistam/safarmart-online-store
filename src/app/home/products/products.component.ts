@@ -48,16 +48,17 @@ getCategories(){
   });
 }
 addToCart(product:any):void{
+  console.log("TESTING THE ACTIONS 9090909090!!!!!!!!11");
   this.isLoadingProducts=true
   this.LocalService.addToCart(product)
-  // this.toastr.success("SUCCESSFULLY ADDED TO CART",'Toastr fun!')
   this.isLoadingProducts=false
 }
 
 addToWhilst(product:any):void{
+  console.log("TESTING THE ACTIONS");
+  
   this.isLoadingProducts=true
-  this.LocalService.addToCart(product)
-  // this.toastr.success("SUCCESSFULLY ADDED TO CART",'Toastr fun!')
+  this.LocalService.addWhishList(product)
   this.isLoadingProducts=false
 }
 goToDetails(event:{code:any}){ 
